@@ -1,0 +1,27 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-publish-the-current-application-version-by-performing-a-full-build-and-deployment-of-both-the-motoko-canister-backend-and-the-react-frontend-ensuring-the-deployment-succeeds-including-avoiding-the-previously-observed-version-2-deployment-failure-and-the-live-site-serves-the-latest-build",
+      "featureTitle": "Publish the current application version by performing a full build and deployment of both the Motoko canister backend and the React frontend, ensuring the deployment succeeds (including avoiding the previously observed Version 2 deployment failure) and the live site serves the latest build.",
+      "files": [
+        "frontend/DEPLOYMENT_CHECKLIST.md",
+        "frontend/src/components/SiteHeader.tsx",
+        "frontend/src/pages/MarketingPage.tsx",
+        "frontend/src/utils/assetUrl.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

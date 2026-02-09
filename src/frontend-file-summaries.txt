@@ -1,0 +1,21 @@
+{
+  "frontend/index.css": "Global styles with warm saffron/amber OKLCH color palette for Delhi travel brand, including light and dark mode tokens.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with warm color palette and custom shadow utilities for the travel brand theme.",
+  "frontend/src/App.tsx": "Main application component managing view state between marketing page and admin requests page.",
+  "frontend/src/pages/MarketingPage.tsx": "Complete marketing homepage with hero section, services, booking form, and contact sections using the assetUrl helper for generated hero image.",
+  "frontend/src/pages/AdminRequestsPage.tsx": "Admin-only page displaying all booking requests with authentication and role-based access control.",
+  "frontend/src/components/SiteHeader.tsx": "Responsive header with red RT logo using the assetUrl helper, navigation menu, and mobile hamburger menu for the marketing site.",
+  "frontend/src/components/ServicesSection.tsx": "Services showcase section displaying four service cards (Taxi, Travel, Car Rental, Pickup/Drop) with icons.",
+  "frontend/src/components/BookingForm.tsx": "Comprehensive booking request form with validation, success feedback, and backend submission.",
+  "frontend/src/components/ContactSection.tsx": "Contact information section displaying address, clickable phone number (+91 7840057815), clickable email (vikkisingh9604@gmail.com), and hours in card layout.",
+  "frontend/src/components/SiteFooter.tsx": "Site footer with business info, quick links, clickable contact phone number (+91 7840057815), clickable email (vikkisingh9604@gmail.com), and caffeine.ai attribution.",
+  "frontend/src/components/LoginButton.tsx": "Reusable Internet Identity login/logout button with loading states and icons.",
+  "frontend/src/hooks/useQueries.ts": "React Query hook for fetching the current user's role from the backend.",
+  "frontend/src/hooks/useSubmitBookingRequest.ts": "React Query mutation hook for submitting booking requests to the backend.",
+  "frontend/src/hooks/useAdminBookingRequests.ts": "React Query hook for fetching all booking requests, enabled only for admin users.",
+  "frontend/src/main.tsx": "Application entry point that sets up React Query and Internet Identity providers, with corrected CSS import path.",
+  "frontend/src/constants/contact.ts": "Single source of truth for business contact information including email, phone number, and raw phone number for tel: links.",
+  "frontend/src/utils/assetUrl.ts": "Helper utility to generate correct static asset URLs using the app's configured base path, supporting both regular and generated assets for deployment compatibility.",
+  "frontend/src/hooks/useActor.ts": "Backend actor initialization hook with deployment-safe error handling that tolerates missing/changed initialization functions and prevents app load blocking.",
+  "frontend/DEPLOYMENT_CHECKLIST.md": "Comprehensive deployment verification guide documenting build steps, post-deploy smoke tests (Marketing renders, booking form success, admin navigation + login + requests load), and troubleshooting aligned with REQ-11 acceptance criteria."
+}

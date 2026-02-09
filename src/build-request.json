@@ -1,0 +1,49 @@
+{
+  "kind": "build_request",
+  "title": "Publish (deploy) the current Ravinder Travels website build",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "text": "Publish the current application version by performing a full build and deployment of both the Motoko canister backend and the React frontend, ensuring the deployment succeeds (including avoiding the previously observed Version 2 deployment failure) and the live site serves the latest build.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "publish it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Deployment completes successfully with no build/deploy errors.",
+        "The deployed frontend loads in a browser and renders the Marketing page without runtime errors.",
+        "Submitting the \"Book a Ride / Request a Quote\" form succeeds against the deployed backend (request is accepted and success feedback is shown).",
+        "Admin view remains accessible (via the existing UI navigation) and can load booking requests when authenticated as an admin."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor in backend/main.mo (no additional backend services).",
+    "Do not edit files under frontend/src/components/ui or any other frontend immutable paths listed in SYSTEM_CONTEXT.",
+    "Use English for any user-facing text."
+  ],
+  "nonGoals": [
+    "Adding new website features or changing UI/UX beyond what is required to successfully publish the current version.",
+    "Changing business contact details, branding, or service offerings (already implemented)."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

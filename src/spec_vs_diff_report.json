@@ -1,0 +1,29 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-08T06:58:31.531Z",
+  "summary": "Diff primarily adds an asset URL helper and updates image references to use it, plus adds a frontend deployment checklist. It does not provide verifiable evidence of an actual full build+deployment of backend and frontend, nor changes clearly addressing the previously observed “Version 2 deployment failure.”",
+  "missing_requirements": [
+    {
+      "id": "REQ-11",
+      "requirement": "Publish the current application version by performing a full build and deployment of both the Motoko canister backend and the React frontend, ensuring the deployment succeeds (including avoiding the previously observed Version 2 deployment failure) and the live site serves the latest build.",
+      "reason": "The diff shows code/documentation changes (asset URL handling and a deployment checklist) but no evidence of the actual build/deploy being performed or of deployment configuration changes that would ensure deployment succeeds (and specifically avoids the prior Version 2 deployment failure). The acceptance criteria are runtime/deploy outcomes that cannot be confirmed from the shown changes.",
+      "evidence": [
+        "frontend/DEPLOYMENT_CHECKLIST.md",
+        "frontend/src/utils/assetUrl.ts",
+        "frontend/src/components/SiteHeader.tsx",
+        "frontend/src/pages/MarketingPage.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.46,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/DEPLOYMENT_CHECKLIST.md",
+    "frontend/src/components/SiteHeader.tsx",
+    "frontend/src/pages/MarketingPage.tsx",
+    "frontend/src/utils/assetUrl.ts",
+    "project_state.json"
+  ]
+}

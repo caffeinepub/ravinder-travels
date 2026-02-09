@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        /* Warm saffron/amber palette for Delhi travel brand */
+        --background: 0.98 0.01 60;
+        --foreground: 0.25 0.02 40;
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.02 40;
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.02 40;
+        /* Rich amber/saffron primary */
+        --primary: 0.65 0.18 50;
+        --primary-foreground: 0.98 0.01 60;
+        /* Warm terracotta secondary */
+        --secondary: 0.75 0.12 35;
+        --secondary-foreground: 0.98 0.01 60;
+        --muted: 0.94 0.01 60;
+        --muted-foreground: 0.50 0.02 40;
+        /* Deep orange accent */
+        --accent: 0.70 0.15 40;
+        --accent-foreground: 0.98 0.01 60;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.98 0.01 60;
+        --border: 0.88 0.02 50;
+        --input: 0.88 0.02 50;
+        --ring: 0.65 0.18 50;
+        --chart-1: 0.65 0.18 50;
+        --chart-2: 0.70 0.15 40;
+        --chart-3: 0.75 0.12 35;
+        --chart-4: 0.60 0.20 55;
+        --chart-5: 0.55 0.22 45;
+    }
+
+    .dark {
+        --background: 0.18 0.02 40;
+        --foreground: 0.96 0.01 60;
+        --card: 0.22 0.02 40;
+        --card-foreground: 0.96 0.01 60;
+        --popover: 0.20 0.02 40;
+        --popover-foreground: 0.96 0.01 60;
+        --primary: 0.70 0.16 50;
+        --primary-foreground: 0.18 0.02 40;
+        --secondary: 0.30 0.03 40;
+        --secondary-foreground: 0.96 0.01 60;
+        --muted: 0.28 0.02 40;
+        --muted-foreground: 0.65 0.02 50;
+        --accent: 0.75 0.14 45;
+        --accent-foreground: 0.18 0.02 40;
+        --destructive: 0.60 0.22 30;
+        --destructive-foreground: 0.96 0.01 60;
+        --border: 0.35 0.02 40;
+        --input: 0.35 0.02 40;
+        --ring: 0.70 0.16 50;
+        --chart-1: 0.70 0.16 50;
+        --chart-2: 0.75 0.14 45;
+        --chart-3: 0.65 0.18 50;
+        --chart-4: 0.60 0.20 55;
+        --chart-5: 0.55 0.22 45;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+}
+
