@@ -1,94 +1,16 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 9,
-  "summary": "Build a travel services website for Ravinder Travels (travel, taxi, car rental, pickup/drop) including business name and address details.",
-  "architectural_notes": [
-    "Business contact phone number: 7840057815.",
-    "Logo requirement: \"RT\" in red to be used as the site logo/brand mark.",
-    "Business contact email: vikkisingh9604@gmail.com."
-  ],
-  "known_issues": [
-    "Deployment error occurred during release of Version 2 (launch unsuccessful)."
-  ],
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-create-a-responsive-marketing-website-for-the-business-named-ravinder-travels-that-clearly-communicates-the-offered-services-travel-taxi-car-rental-and-pickup-drop",
-      "title": "Create a responsive marketing website for the business named \"Ravinder Travels\" that clearly communicates the offered services: travel, taxi, car rental, and pickup/drop.",
+      "id": "feature-add-the-following-google-search-console-site-verification-meta-tag-to-the-document-head-so-it-is-present-on-the-home-page-load-meta-name-google-site-verification-content-jix9-aphgmsecg4mi-munxwqe4-xw7liwlkq-81pkwq-implement-this-in-the-static-html-entrypoint-frontend-index-html-within-the-head-section",
+      "title": "Add the following Google Search Console site verification meta tag to the document <head> so it is present on the home page load: <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" />. Implement this in the static HTML entrypoint (frontend/index.html) within the <head> section.",
       "reqIds": [
         "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-display-the-business-address-exactly-as-provided-rk-puram-sector-4-new-delhi-110022-in-the-site-footer-and-on-a-dedicated-contact-section-page",
-      "title": "Display the business address exactly as provided: \"RK Puram Sector 4, New Delhi 110022\" in the site footer and on a dedicated Contact section/page.",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-book-a-ride-request-a-quote-form-that-collects-basic-trip-details-name-phone-service-type-pickup-location-drop-location-date-time-notes-and-submits-the-request-to-the-backend-for-storage",
-      "title": "Add a \"Book a Ride / Request a Quote\" form that collects basic trip details (name, phone, service type, pickup location, drop location, date/time, notes) and submits the request to the backend for storage.",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-apply-a-coherent-distinctive-visual-theme-across-the-site-colors-typography-spacing-components-suitable-for-a-delhi-based-travel-taxi-brand-avoid-blue-purple-as-the-primary-palette",
-      "title": "Apply a coherent, distinctive visual theme across the site (colors, typography, spacing, components) suitable for a Delhi-based travel/taxi brand; avoid blue/purple as the primary palette.",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-display-the-business-contact-phone-number-91-7840057815-exact-digits-7840057815-in-the-contact-section-and-in-the-site-footer-replacing-the-existing-placeholder-phone-text",
-      "title": "Display the business contact phone number \"+91 7840057815\" (exact digits: 7840057815) in the Contact section and in the site footer, replacing the existing placeholder phone text.",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-make-the-displayed-phone-number-clickable-where-it-appears-use-a-tel-link-so-users-can-tap-click-to-call-7840057815",
-      "title": "Make the displayed phone number clickable where it appears (use a tel link) so users can tap/click to call 7840057815.",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-site-logo-to-a-red-rt-logo-mark-and-use-it-as-the-site-logo-in-the-header-in-place-of-the-current-generated-logo-image",
-      "title": "Update the site logo to a red \"RT\" logo mark and use it as the site logo in the header in place of the current generated logo image.",
-      "reqIds": [
-        "REQ-8"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-displayed-business-contact-email-address-to-vikkisingh9604-gmail-com-everywhere-it-appears-on-the-marketing-site-at-minimum-contact-section-and-site-footer-replacing-the-current-info-ravindertravels-com-value",
-      "title": "Update the displayed business contact email address to \"vikkisingh9604@gmail.com\" everywhere it appears on the marketing site (at minimum: Contact section and site footer), replacing the current \"info@ravindertravels.com\" value.",
-      "reqIds": [
-        "REQ-9"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-make-the-displayed-email-address-clickable-wherever-it-appears-by-using-a-mailto-link-to-vikkisingh9604-gmail-com",
-      "title": "Make the displayed email address clickable wherever it appears by using a mailto link to \"vikkisingh9604@gmail.com\".",
-      "reqIds": [
-        "REQ-10"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-publish-the-current-application-version-by-performing-a-full-build-and-deployment-of-both-the-motoko-canister-backend-and-the-react-frontend-ensuring-the-deployment-succeeds-including-avoiding-the-previously-observed-version-2-deployment-failure-and-the-live-site-serves-the-latest-build",
-      "title": "Publish the current application version by performing a full build and deployment of both the Motoko canister backend and the React frontend, ensuring the deployment succeeds (including avoiding the previously observed Version 2 deployment failure) and the live site serves the latest build.",
-      "reqIds": [
-        "REQ-11"
       ],
       "version": 1
     }
@@ -96,39 +18,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Create a travel services website for Ravinder Travels offering travel, taxi, car rental, and pickup/drop services, showing the business name and address (RK Puram Sector 4, New Delhi 110022).",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Implement the backend data model and APIs to store and retrieve booking/quote requests in a single Motoko actor.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Add and display the business contact phone number \"7840057815\" (e.g., in header/footer and Contact section).",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-7",
-      "summary": "Update/define the brand logo to be \"RT\" in red (use as site logo).",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-8",
-      "summary": "Update the site contact email to the correct address: vikkisingh9604@gmail.com (display in Contact section/footer and use for contact links/forms if applicable).",
+      "summary": "Add Google Search Console site verification meta tag to the home page head",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "Ravinder Travels",
+  "projectName": "Add Google Search Console verification meta tag to homepage head",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

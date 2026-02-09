@@ -1,42 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Ravinder Travels — frontend readiness for successful publish/deploy",
+  "title": "Add Google Search Console verification meta tag to homepage head",
   "requirements": [
     {
-      "id": "REQ-11",
-      "summary": "Harden the frontend build/runtime path so the deployed site reliably serves the latest Marketing page, booking form submission works against the deployed backend, and admin navigation remains accessible after login.",
+      "id": "REQ-1",
+      "summary": "Add the provided Google Search Console verification meta tag to the static HTML entrypoint so it is present on initial home page load.",
       "acceptanceCriteria": [
-        "Deployment completes successfully with no build/deploy errors.",
-        "The deployed frontend loads in a browser and renders the Marketing page without runtime errors.",
-        "Submitting the \"Book a Ride / Request a Quote\" form succeeds against the deployed backend (request is accepted and success feedback is shown).",
-        "Admin view remains accessible (via the existing UI navigation) and can load booking requests when authenticated as an admin."
+        "frontend/index.html contains <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" /> inside the <head> element.",
+        "When loading the app in a browser, View Source shows the verification meta tag in the <head>.",
+        "No React runtime errors or TypeScript build errors are introduced."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/hooks/useActor.ts",
+          "path": "frontend/index.html",
           "operation": "modify",
-          "description": "Make actor initialization more deployment-safe by guarding and error-handling the access-control initialization call (e.g., tolerate missing/changed initialization function and avoid blocking app load). This supports the selected authorization component’s authentication/role-based access patterns; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/utils/assetUrl.ts",
-          "operation": "create",
-          "description": "Add a small helper to generate correct static asset URLs using the app’s configured base path so generated images load correctly after deployment (including non-root hosting)."
-        },
-        {
-          "path": "frontend/src/pages/MarketingPage.tsx",
-          "operation": "modify",
-          "description": "Switch generated hero image reference to use the shared asset URL helper so the deployed Marketing page renders without missing assets/runtime issues. Wire in the existing generated asset at frontend/public/assets/generated/ravinder-travels-hero.dim_1600x600.png."
-        },
-        {
-          "path": "frontend/src/components/SiteHeader.tsx",
-          "operation": "modify",
-          "description": "Switch generated logo image reference to use the shared asset URL helper so the deployed header renders consistently. Wire in the existing generated asset at frontend/public/assets/generated/ravinder-travels-logo-rt-red.dim_512x512.png."
-        },
-        {
-          "path": "frontend/DEPLOYMENT_CHECKLIST.md",
-          "operation": "create",
-          "description": "Document the exact frontend publish verification steps for this app: production build steps, post-deploy smoke checks (Marketing renders, booking form success feedback, admin navigation + login + requests load). Keep it aligned with REQ-11 acceptance criteria and avoid adding new product features."
+          "description": "Insert <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" /> within the <head> section (alongside existing meta charset/viewport) so it appears in initial HTML on home page load."
         }
       ]
     }

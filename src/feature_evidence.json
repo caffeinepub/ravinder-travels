@@ -2,13 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-publish-the-current-application-version-by-performing-a-full-build-and-deployment-of-both-the-motoko-canister-backend-and-the-react-frontend-ensuring-the-deployment-succeeds-including-avoiding-the-previously-observed-version-2-deployment-failure-and-the-live-site-serves-the-latest-build",
-      "featureTitle": "Publish the current application version by performing a full build and deployment of both the Motoko canister backend and the React frontend, ensuring the deployment succeeds (including avoiding the previously observed Version 2 deployment failure) and the live site serves the latest build.",
+      "featureId": "feature-add-the-following-google-search-console-site-verification-meta-tag-to-the-document-head-so-it-is-present-on-the-home-page-load-meta-name-google-site-verification-content-jix9-aphgmsecg4mi-munxwqe4-xw7liwlkq-81pkwq-implement-this-in-the-static-html-entrypoint-frontend-index-html-within-the-head-section",
+      "featureTitle": "Add the following Google Search Console site verification meta tag to the document <head> so it is present on the home page load: <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" />. Implement this in the static HTML entrypoint (frontend/index.html) within the <head> section.",
       "files": [
-        "frontend/DEPLOYMENT_CHECKLIST.md",
-        "frontend/src/components/SiteHeader.tsx",
-        "frontend/src/pages/MarketingPage.tsx",
-        "frontend/src/utils/assetUrl.ts"
+        "frontend/index.html"
       ],
       "components": [
         "authorization@4.0.0",
@@ -19,7 +16,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-11"
+        "REQ-1"
       ],
       "confidence": "high"
     }

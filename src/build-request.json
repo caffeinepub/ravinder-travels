@@ -1,49 +1,37 @@
 {
   "kind": "build_request",
-  "title": "Publish (deploy) the current Ravinder Travels website build",
+  "title": "Add Google Search Console verification meta tag to homepage head",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-11",
-      "text": "Publish the current application version by performing a full build and deployment of both the Motoko canister backend and the React frontend, ensuring the deployment succeeds (including avoiding the previously observed Version 2 deployment failure) and the live site serves the latest build.",
-      "target": "both",
+      "id": "REQ-1",
+      "text": "Add the following Google Search Console site verification meta tag to the document <head> so it is present on the home page load: <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" />. Implement this in the static HTML entrypoint (frontend/index.html) within the <head> section.",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-user-1"
         ],
         "quotes": [
-          "publish it"
+          "<meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" /> add this to home page"
         ]
       },
       "acceptanceCriteria": [
-        "Deployment completes successfully with no build/deploy errors.",
-        "The deployed frontend loads in a browser and renders the Marketing page without runtime errors.",
-        "Submitting the \"Book a Ride / Request a Quote\" form succeeds against the deployed backend (request is accepted and success feedback is shown).",
-        "Admin view remains accessible (via the existing UI navigation) and can load booking requests when authenticated as an admin."
+        "frontend/index.html contains <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" /> inside the <head> element.",
+        "When loading the app in a browser, View Source shows the verification meta tag in the <head>.",
+        "No React runtime errors or TypeScript build errors are introduced."
       ]
     }
   ],
   "constraints": [
-    "Backend must remain a single Motoko actor in backend/main.mo (no additional backend services).",
-    "Do not edit files under frontend/src/components/ui or any other frontend immutable paths listed in SYSTEM_CONTEXT.",
-    "Use English for any user-facing text."
+    "Do not edit any frontend files under the immutable paths listed in SYSTEM_CONTEXT (e.g., frontend/src/main.tsx and frontend/src/hooks/useInternetIdentity.ts(x)).",
+    "Keep all backend code unchanged; no backend changes are required for adding an HTML meta tag."
   ],
   "nonGoals": [
-    "Adding new website features or changing UI/UX beyond what is required to successfully publish the current version.",
-    "Changing business contact details, branding, or service offerings (already implemented)."
+    "Adding any other SEO tags (Open Graph, Twitter cards, canonical URLs) beyond the exact meta tag provided by the user.",
+    "Changing routing, page components, or content on the marketing page."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

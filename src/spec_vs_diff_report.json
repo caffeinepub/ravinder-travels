@@ -1,29 +1,58 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-08T06:58:31.531Z",
-  "summary": "Diff primarily adds an asset URL helper and updates image references to use it, plus adds a frontend deployment checklist. It does not provide verifiable evidence of an actual full build+deployment of backend and frontend, nor changes clearly addressing the previously observed “Version 2 deployment failure.”",
-  "missing_requirements": [
+  "generatedAt": "2026-02-09T10:23:28.654Z",
+  "summary": "REQ-1 appears implemented: the specified Google Search Console verification meta tag is present in frontend/index.html داخل <head>. However, the diff also includes many additional frontend changes not requested (including modifications to frontend/src/main.tsx, which the BuildRequest explicitly lists as an immutable path), and new/changed UI/pages/hooks unrelated to adding a single meta tag.",
+  "missing_requirements": [],
+  "hallucinated_features": [
     {
-      "id": "REQ-11",
-      "requirement": "Publish the current application version by performing a full build and deployment of both the Motoko canister backend and the React frontend, ensuring the deployment succeeds (including avoiding the previously observed Version 2 deployment failure) and the live site serves the latest build.",
-      "reason": "The diff shows code/documentation changes (asset URL handling and a deployment checklist) but no evidence of the actual build/deploy being performed or of deployment configuration changes that would ensure deployment succeeds (and specifically avoids the prior Version 2 deployment failure). The acceptance criteria are runtime/deploy outcomes that cannot be confirmed from the shown changes.",
+      "description": "Extensive redesign/addition of marketing site UI (marketing page, header/footer, services section, booking form, contact section) beyond adding a single verification meta tag.",
+      "reason": "BuildRequest non-goals explicitly disallow changing routing, page components, or marketing page content; the only requested change was adding one meta tag in frontend/index.html.",
       "evidence": [
-        "frontend/DEPLOYMENT_CHECKLIST.md",
-        "frontend/src/utils/assetUrl.ts",
-        "frontend/src/components/SiteHeader.tsx",
-        "frontend/src/pages/MarketingPage.tsx"
+        "frontend-file-summaries.txt (frontend/src/pages/MarketingPage.tsx, frontend/src/components/SiteHeader.tsx, frontend/src/components/ServicesSection.tsx, frontend/src/components/BookingForm.tsx, frontend/src/components/ContactSection.tsx, frontend/src/components/SiteFooter.tsx)"
+      ]
+    },
+    {
+      "description": "Added/modified admin requests page with authentication/role-based access and related React Query hooks for roles, booking submission, and admin booking requests.",
+      "reason": "Not requested by REQ-1 and outside the scope (only add a meta tag).",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/src/pages/AdminRequestsPage.tsx, frontend/src/hooks/useQueries.ts, frontend/src/hooks/useSubmitBookingRequest.ts, frontend/src/hooks/useAdminBookingRequests.ts)"
+      ]
+    },
+    {
+      "description": "Global styling and Tailwind configuration changes (new warm saffron/amber palette, custom shadows, etc.).",
+      "reason": "Not requested; non-goals limit scope to the exact provided meta tag only (no other SEO/UI work implied).",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/index.css, frontend/tailwind.config.js)"
+      ]
+    },
+    {
+      "description": "Modified application entry point frontend/src/main.tsx.",
+      "reason": "BuildRequest constraint explicitly says not to edit immutable paths (example given includes frontend/src/main.tsx). This change is outside requested scope and violates the stated constraint.",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/src/main.tsx)"
+      ]
+    },
+    {
+      "description": "Added/modified deployment checklist and project state metadata unrelated to adding a meta tag.",
+      "reason": "Not requested by REQ-1.",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/DEPLOYMENT_CHECKLIST.md)",
+        "project_state.json"
+      ]
+    },
+    {
+      "description": "Added asset URL helper and changes related to asset handling and backend actor initialization behavior.",
+      "reason": "Not requested for adding a single static HTML meta tag.",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/src/utils/assetUrl.ts, frontend/src/hooks/useActor.ts)"
       ]
     }
   ],
-  "hallucinated_features": [],
-  "confidence": 0.46,
+  "confidence": 0.83,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/DEPLOYMENT_CHECKLIST.md",
-    "frontend/src/components/SiteHeader.tsx",
-    "frontend/src/pages/MarketingPage.tsx",
-    "frontend/src/utils/assetUrl.ts",
+    "frontend/index.html",
     "project_state.json"
   ]
 }
