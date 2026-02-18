@@ -1,21 +1,84 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add Google Search Console verification meta tag to homepage head",
+  "title": "Fix AMP validity and add canonical/AMP discovery + crawlability",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add the provided Google Search Console verification meta tag to the static HTML entrypoint so it is present on initial home page load.",
+      "summary": "Add a standalone, AMP-valid marketing landing page as a static asset at frontend/public/amp/index.html (no React, no custom JS) with equivalent marketing content and AMP-safe images.",
       "acceptanceCriteria": [
-        "frontend/index.html contains <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" /> inside the <head> element.",
-        "When loading the app in a browser, View Source shows the verification meta tag in the <head>.",
-        "No React runtime errors or TypeScript build errors are introduced."
+        "`/amp/index.html` renders as a standalone HTML document (not relying on React hydration).",
+        "Page passes AMP validation (no critical errors) when checked with the AMP validator (e.g., `#development=1` console validation or official AMP Test).",
+        "The AMP page contains no custom JavaScript and does not include the React app module script.",
+        "All images used on the AMP page specify explicit width and height and use AMP-safe markup (e.g., `amp-img` where applicable)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/amp/index.html",
+          "operation": "create",
+          "description": "Create a fully standalone AMP HTML document with required AMP runtime script, boilerplate, and <html amp> (or <html ⚡>) root. Include equivalent marketing content (title, short description, services summary, contact details) and link to the canonical site for interactive actions (e.g., booking/admin). Use AMP-safe markup only (no custom JS, no React module scripts). Ensure any images used are AMP-compliant (amp-img) and include explicit width/height, e.g. referencing existing static assets like frontend/public/assets/generated/ravinder-travels-hero.dim_1600x600.png and frontend/public/assets/generated/ravinder-travels-logo.dim_512x512.png with correct dimensions."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add canonical/AMP discovery linking between frontend/index.html (canonical) and frontend/public/amp/index.html (AMP).",
+      "acceptanceCriteria": [
+        "`frontend/index.html` contains a `rel=\"amphtml\"` link pointing to `/amp/index.html` while preserving the existing Google site verification meta tag.",
+        "`frontend/public/amp/index.html` contains a `rel=\"canonical\"` link pointing to the canonical page.",
+        "No AMP validation errors are introduced by the linking tags."
       ],
       "file_operations": [
         {
           "path": "frontend/index.html",
           "operation": "modify",
-          "description": "Insert <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" /> within the <head> section (alongside existing meta charset/viewport) so it appears in initial HTML on home page load."
+          "description": "Add <link rel=\"amphtml\" href=\"/amp/index.html\"> in the <head> while preserving the existing Google Search Console verification meta tag and existing script loader for the React app."
+        },
+        {
+          "path": "frontend/public/amp/index.html",
+          "operation": "modify",
+          "description": "Ensure the AMP page includes a correct <link rel=\"canonical\" href=\"/\"> (or the appropriate canonical path) in <head> and that the discovery linking does not introduce AMP validation errors."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Ensure the AMP page is crawlable (robots/sitemap) and deploys as a static asset that serves HTTP 200.",
+      "acceptanceCriteria": [
+        "A `robots.txt` exists (or is updated) to allow crawling of `/amp/` paths (no `Disallow: /amp/`).",
+        "(If a sitemap is present/added) it includes the AMP URL or at minimum does not exclude it.",
+        "After build and deployment, requesting `/amp/index.html` returns 200 and serves the AMP HTML content."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/robots.txt",
+          "operation": "create",
+          "description": "Add a robots.txt that does not disallow /amp/ paths (explicitly allow crawling for /amp/). Keep rules minimal and avoid blocking any required marketing pages."
+        },
+        {
+          "path": "frontend/public/sitemap.xml",
+          "operation": "create",
+          "description": "Add a sitemap that includes the canonical root URL and also lists /amp/index.html (or at minimum does not exclude /amp/). Keep it suitable for a static site and compatible with typical crawler expectations."
+        },
+        {
+          "path": "frontend/public/amp/index.html",
+          "operation": "modify",
+          "description": "Double-check that the AMP file location and relative asset references are compatible with static hosting so /amp/index.html is served as a static asset (HTTP 200) after build/deploy."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Update frontend deployment checklist with an AMP validation smoke test for /amp/index.html.",
+      "acceptanceCriteria": [
+        "`frontend/DEPLOYMENT_CHECKLIST.md` includes a new step to verify `/amp/index.html` loads and passes AMP validation.",
+        "Checklist explicitly notes that the AMP page must remain free of custom JS and React scripts."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/DEPLOYMENT_CHECKLIST.md",
+          "operation": "modify",
+          "description": "Add a new smoke test section/step describing how to open /amp/index.html in the deployed environment, how to run AMP validation (e.g., add #development=1 and check console or use AMP Test), what constitutes success, and a note that the AMP page must remain free of custom JavaScript and React scripts."
         }
       ]
     }

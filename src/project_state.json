@@ -1,16 +1,42 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Project to fix/validate AMP pages so they comply with AMP rules and can be served by Google as AMP.",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "AMP pages currently invalid due to one or more AMP validation rule violations, preventing Google from serving them as AMP."
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-add-the-following-google-search-console-site-verification-meta-tag-to-the-document-head-so-it-is-present-on-the-home-page-load-meta-name-google-site-verification-content-jix9-aphgmsecg4mi-munxwqe4-xw7liwlkq-81pkwq-implement-this-in-the-static-html-entrypoint-frontend-index-html-within-the-head-section",
-      "title": "Add the following Google Search Console site verification meta tag to the document <head> so it is present on the home page load: <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" />. Implement this in the static HTML entrypoint (frontend/index.html) within the <head> section.",
+      "id": "feature-create-a-valid-amp-html-landing-page-for-the-marketing-site-at-frontend-public-amp-index-html-that-complies-with-amp-rules-amp-runtime-script-required-boilerplate-html-or-html-amp-valid-amp-component-usage-only-no-custom-javascript-inline-css-within-amp-limits-the-amp-page-should-include-equivalent-marketing-content-title-short-description-services-summary-contact-details-and-link-users-to-the-canonical-non-amp-site-for-interactive-actions-like-booking-admin",
+      "title": "Create a valid AMP HTML landing page for the marketing site at `frontend/public/amp/index.html` that complies with AMP rules (AMP runtime script, required boilerplate, `<html ⚡>` or `<html amp>`, valid AMP component usage only, no custom JavaScript, inline CSS within AMP limits). The AMP page should include equivalent marketing content (title, short description, services summary, contact details) and link users to the canonical (non-AMP) site for interactive actions like booking/admin.",
       "reqIds": [
         "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-proper-canonical-amp-discovery-linking-between-the-canonical-app-entrypoint-frontend-index-html-and-the-new-amp-page-include-a-link-rel-amphtml-href-amp-index-html-on-the-canonical-page-and-include-a-link-rel-canonical-href-or-the-appropriate-canonical-url-path-on-the-amp-page",
+      "title": "Add proper canonical/AMP discovery linking between the canonical app entrypoint (`frontend/index.html`) and the new AMP page: include a `<link rel=\"amphtml\" href=\"/amp/index.html\">` on the canonical page, and include a `<link rel=\"canonical\" href=\"/\">` (or the appropriate canonical URL path) on the AMP page.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-amp-pages-are-indexable-and-not-blocked-add-update-frontend-public-robots-txt-and-or-frontend-public-sitemap-xml-as-needed-so-amp-index-html-is-crawlable-and-ensure-the-amp-page-returns-http-200-when-deployed-as-a-static-asset",
+      "title": "Ensure AMP pages are indexable and not blocked: add/update `frontend/public/robots.txt` and/or `frontend/public/sitemap.xml` as needed so `/amp/index.html` is crawlable, and ensure the AMP page returns HTTP 200 when deployed as a static asset.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-frontend-deployment-checklist-to-include-an-amp-validation-smoke-test-for-amp-index-html-how-to-open-it-how-to-run-amp-validation-and-what-constitutes-success",
+      "title": "Update the frontend deployment checklist to include an AMP validation smoke test for `/amp/index.html` (how to open it, how to run AMP validation, and what constitutes success).",
+      "reqIds": [
+        "REQ-4"
       ],
       "version": 1
     }
@@ -18,12 +44,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add Google Search Console site verification meta tag to the home page head",
+      "summary": "Fix invalid AMP pages by correcting AMP rule violations (required tags/scripts, disallowed HTML/CSS/JS, image dimensions, robots/errors) so Google recognizes and serves them as AMP.",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Add Google Search Console verification meta tag to homepage head",
+  "projectName": "Fix invalid AMP pages and add proper AMP discovery links",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

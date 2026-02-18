@@ -24,6 +24,7 @@
    - Check that `frontend/dist` directory exists
    - Verify `frontend/dist/env.json` is present
    - Confirm generated assets are in `frontend/dist/assets/generated/`
+   - Verify `frontend/dist/amp/index.html` exists
 
 ## Post-Deployment Verification (Smoke Tests)
 
@@ -69,7 +70,25 @@
   - Notes
 - [ ] Verify "Back to Home" button returns to Marketing page
 
-### 5. Responsive Design Check
+### 5. AMP Page Validation
+- [ ] Open `/amp/index.html` in a browser
+- [ ] Verify the AMP page loads and displays marketing content
+- [ ] Add `#development=1` to the URL (e.g., `/amp/index.html#development=1`)
+- [ ] Open browser console and check for AMP validation messages
+- [ ] Confirm "AMP validation successful" message appears (no critical errors)
+- [ ] Verify the AMP page contains:
+  - No custom JavaScript
+  - No React module scripts
+  - Proper AMP boilerplate and runtime script
+  - Images with explicit width and height attributes
+- [ ] Test AMP page on mobile viewport
+- [ ] Verify "Book Now" button links to canonical site
+
+**Alternative validation method:**
+- Visit [AMP Test](https://search.google.com/test/amp) and enter your AMP page URL
+- Confirm the page passes validation with no critical errors
+
+### 6. Responsive Design Check
 - [ ] Test on mobile viewport (< 768px)
 - [ ] Test on tablet viewport (768px - 1024px)
 - [ ] Test on desktop viewport (> 1024px)
@@ -100,6 +119,13 @@
 - Confirm all required form fields are filled
 - Test with anonymous (guest) access first
 
+### AMP Validation Errors
+- Ensure no custom JavaScript is present in `/amp/index.html`
+- Verify all images have explicit width and height attributes
+- Check that AMP runtime script is loaded correctly
+- Confirm canonical link points to the correct URL
+- Verify the page uses only AMP-allowed HTML and CSS
+
 ## Acceptance Criteria (REQ-11)
 
 ✅ Deployment completes successfully with no build/deploy errors
@@ -113,3 +139,5 @@
 - Guest users can submit booking requests without logging in
 - Only authenticated admin users can view all booking requests
 - The first authenticated user is automatically assigned admin role
+- The AMP page at `/amp/index.html` is a standalone static page for improved search visibility
+- AMP pages must remain free of custom JavaScript and React scripts to maintain validity

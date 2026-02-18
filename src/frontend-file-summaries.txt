@@ -17,6 +17,9 @@
   "frontend/src/constants/contact.ts": "Single source of truth for business contact information including email, phone number, and raw phone number for tel: links.",
   "frontend/src/utils/assetUrl.ts": "Helper utility to generate correct static asset URLs using the app's configured base path, supporting both regular and generated assets for deployment compatibility.",
   "frontend/src/hooks/useActor.ts": "Backend actor initialization hook with deployment-safe error handling that tolerates missing/changed initialization functions and prevents app load blocking.",
-  "frontend/DEPLOYMENT_CHECKLIST.md": "Comprehensive deployment verification guide documenting build steps, post-deploy smoke tests (Marketing renders, booking form success, admin navigation + login + requests load), and troubleshooting aligned with REQ-11 acceptance criteria.",
-  "frontend/index.html": "HTML entry point with Google Search Console verification meta tag, charset, viewport, and title for the Ravinder Travels application."
+  "frontend/DEPLOYMENT_CHECKLIST.md": "Comprehensive deployment verification guide with added AMP validation smoke test section documenting how to verify AMP page validity using #development=1 or AMP Test tool.",
+  "frontend/index.html": "HTML entry point with Google Search Console verification meta tag and AMP discovery link pointing to /amp/index.html.",
+  "frontend/public/amp/index.html": "Standalone AMP-valid marketing landing page with required AMP runtime, boilerplate, proper markup, and explicit image dimensions for Google AMP compliance.",
+  "frontend/public/robots.txt": "Robots.txt file allowing crawler access to all paths including /amp/ and referencing the sitemap.",
+  "frontend/public/sitemap.xml": "XML sitemap listing both the canonical root URL and the AMP page for search engine discovery."
 }

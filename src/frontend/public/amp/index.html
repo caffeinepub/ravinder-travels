@@ -1,0 +1,325 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title>Ravinder Travels - Delhi Taxi & Travel Services</title>
+  <link rel="canonical" href="/">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <style amp-custom>
+    :root {
+      --primary: oklch(0.55 0.15 35);
+      --primary-foreground: oklch(0.98 0.02 35);
+      --background: oklch(0.99 0.01 35);
+      --foreground: oklch(0.20 0.02 35);
+      --muted: oklch(0.95 0.01 35);
+      --border: oklch(0.88 0.02 35);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--foreground);
+      background: var(--background);
+    }
+    .header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .nav-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--primary);
+      color: var(--primary-foreground);
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .nav-link:hover {
+      opacity: 0.9;
+    }
+    .hero {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .hero-content {
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      max-width: 800px;
+    }
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+    .section {
+      padding: 4rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--foreground);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .service-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--foreground);
+    }
+    .service-desc {
+      color: oklch(0.45 0.02 35);
+      font-size: 0.95rem;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .contact-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .contact-label {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .contact-value {
+      color: var(--foreground);
+      font-size: 1rem;
+    }
+    .contact-link {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+    .cta-section {
+      background: var(--muted);
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .cta-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--foreground);
+    }
+    .cta-text {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      color: oklch(0.45 0.02 35);
+    }
+    .footer {
+      background: var(--foreground);
+      color: white;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-text {
+      opacity: 0.9;
+      font-size: 0.875rem;
+    }
+    .footer-link {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    .footer-link:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.75rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .section {
+        padding: 3rem 1rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo-container">
+        <amp-img src="/assets/generated/ravinder-travels-logo-rt-red.dim_512x512.png" 
+                 alt="Ravinder Travels Logo" 
+                 width="40" 
+                 height="40"
+                 layout="fixed"></amp-img>
+        <span class="logo-text">Ravinder Travels</span>
+      </div>
+      <a href="/" class="nav-link">Book Now</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <amp-img src="/assets/generated/ravinder-travels-hero.dim_1600x600.png" 
+             alt="Delhi Travel Services" 
+             width="1600" 
+             height="600"
+             layout="responsive"></amp-img>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1 class="hero-title">Your Trusted Travel Partner in Delhi</h1>
+        <p class="hero-subtitle">Reliable taxi services, travel packages, and car rentals across Delhi NCR</p>
+        <a href="/" class="nav-link">Book Your Ride</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🚕</div>
+        <h3 class="service-title">Taxi Service</h3>
+        <p class="service-desc">Comfortable and reliable taxi service for all your travel needs in Delhi NCR</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✈️</div>
+        <h3 class="service-title">Travel Packages</h3>
+        <p class="service-desc">Customized travel packages for local and outstation trips</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚗</div>
+        <h3 class="service-title">Car Rental</h3>
+        <p class="service-desc">Self-drive and chauffeur-driven car rental options</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛫</div>
+        <h3 class="service-title">Airport Pickup/Drop</h3>
+        <p class="service-desc">Timely airport transfers with professional drivers</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2 class="cta-title">Ready to Book Your Ride?</h2>
+    <p class="cta-text">Visit our booking page to request a quote or make a reservation</p>
+    <a href="/" class="nav-link">Go to Booking Page</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-label">Address</div>
+        <div class="contact-value">Delhi, India</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">
+          <a href="tel:+917840057815" class="contact-link">+91 7840057815</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">
+          <a href="mailto:vikkisingh9604@gmail.com" class="contact-link">vikkisingh9604@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-label">Hours</div>
+        <div class="contact-value">24/7 Available</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-text">© 2026. Built with ❤️ using <a href="https://caffeine.ai" class="footer-link">caffeine.ai</a></p>
+    </div>
+  </footer>
+</body>
+</html>

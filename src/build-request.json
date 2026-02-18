@@ -1,37 +1,103 @@
 {
   "kind": "build_request",
-  "title": "Add Google Search Console verification meta tag to homepage head",
+  "title": "Fix invalid AMP pages and add proper AMP discovery links",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add the following Google Search Console site verification meta tag to the document <head> so it is present on the home page load: <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" />. Implement this in the static HTML entrypoint (frontend/index.html) within the <head> section.",
+      "text": "Create a valid AMP HTML landing page for the marketing site at `frontend/public/amp/index.html` that complies with AMP rules (AMP runtime script, required boilerplate, `<html ⚡>` or `<html amp>`, valid AMP component usage only, no custom JavaScript, inline CSS within AMP limits). The AMP page should include equivalent marketing content (title, short description, services summary, contact details) and link users to the canonical (non-AMP) site for interactive actions like booking/admin.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-user-1"
         ],
         "quotes": [
-          "<meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" /> add this to home page"
+          "yes please correct the amp pages"
         ]
       },
       "acceptanceCriteria": [
-        "frontend/index.html contains <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" /> inside the <head> element.",
-        "When loading the app in a browser, View Source shows the verification meta tag in the <head>.",
-        "No React runtime errors or TypeScript build errors are introduced."
+        "`/amp/index.html` renders as a standalone HTML document (not relying on React hydration).",
+        "Page passes AMP validation (no critical errors) when checked with the AMP validator (e.g., `#development=1` console validation or official AMP Test).",
+        "The AMP page contains no custom JavaScript and does not include the React app module script.",
+        "All images used on the AMP page specify explicit width and height and use AMP-safe markup (e.g., `amp-img` where applicable)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add proper canonical/AMP discovery linking between the canonical app entrypoint (`frontend/index.html`) and the new AMP page: include a `<link rel=\"amphtml\" href=\"/amp/index.html\">` on the canonical page, and include a `<link rel=\"canonical\" href=\"/\">` (or the appropriate canonical URL path) on the AMP page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-1"
+        ],
+        "quotes": [
+          "yes please correct the amp pages"
+        ]
+      },
+      "acceptanceCriteria": [
+        "`frontend/index.html` contains a `rel=\"amphtml\"` link pointing to `/amp/index.html` while preserving the existing Google site verification meta tag.",
+        "`frontend/public/amp/index.html` contains a `rel=\"canonical\"` link pointing to the canonical page.",
+        "No AMP validation errors are introduced by the linking tags."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Ensure AMP pages are indexable and not blocked: add/update `frontend/public/robots.txt` and/or `frontend/public/sitemap.xml` as needed so `/amp/index.html` is crawlable, and ensure the AMP page returns HTTP 200 when deployed as a static asset.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-1"
+        ],
+        "quotes": [
+          "yes please correct the amp pages"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A `robots.txt` exists (or is updated) to allow crawling of `/amp/` paths (no `Disallow: /amp/`).",
+        "(If a sitemap is present/added) it includes the AMP URL or at minimum does not exclude it.",
+        "After build and deployment, requesting `/amp/index.html` returns 200 and serves the AMP HTML content."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Update the frontend deployment checklist to include an AMP validation smoke test for `/amp/index.html` (how to open it, how to run AMP validation, and what constitutes success).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-1"
+        ],
+        "quotes": [
+          "yes please correct the amp pages"
+        ]
+      },
+      "acceptanceCriteria": [
+        "`frontend/DEPLOYMENT_CHECKLIST.md` includes a new step to verify `/amp/index.html` loads and passes AMP validation.",
+        "Checklist explicitly notes that the AMP page must remain free of custom JS and React scripts."
       ]
     }
   ],
   "constraints": [
-    "Do not edit any frontend files under the immutable paths listed in SYSTEM_CONTEXT (e.g., frontend/src/main.tsx and frontend/src/hooks/useInternetIdentity.ts(x)).",
-    "Keep all backend code unchanged; no backend changes are required for adding an HTML meta tag."
+    "Do not modify files under `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, or anything in `frontend/src/components/ui` (immutable paths).",
+    "Preserve the existing Google Search Console verification meta tag already present in `frontend/index.html`.",
+    "Do not introduce any backend dependencies for serving AMP; AMP pages must be static assets served from the frontend."
   ],
   "nonGoals": [
-    "Adding any other SEO tags (Open Graph, Twitter cards, canonical URLs) beyond the exact meta tag provided by the user.",
-    "Changing routing, page components, or content on the marketing page."
+    "Implementing a fully interactive AMP booking form submission flow.",
+    "Creating AMP equivalents for authenticated/admin views (e.g., Admin Requests page).",
+    "Changing backend Motoko logic or data models for AMP compliance."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

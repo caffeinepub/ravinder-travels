@@ -1,24 +1,63 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T10:23:28.656Z",
+  "generatedAt": "2026-02-09T10:37:28.461Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 4,
+    "implemented": 4,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Add the following Google Search Console site verification meta tag to the document <head> so it is present on the home page load: <meta name=\"google-site-verification\" content=\"jiX9_ApHGMseCG4mi-MUNxWqe4-XW7LiWlKq_81pkwQ\" />. Implement this in the static HTML entrypoint (frontend/index.html) within the <head> section.",
+        "summary": "Create a valid AMP HTML landing page for the marketing site at `frontend/public/amp/index.html` that complies with AMP rules (AMP runtime script, required boilerplate, `<html ⚡>` or `<html amp>`, valid AMP component usage only, no custom JavaScript, inline CSS within AMP limits). The AMP page should include equivalent marketing content (title, short description, services summary, contact details) and link users to the canonical (non-AMP) site for interactive actions like booking/admin.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/index.html"
+          "frontend/public/amp/index.html"
         ],
         "matchedFiles": [
-          "frontend/index.html"
+          "frontend/public/amp/index.html"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Add proper canonical/AMP discovery linking between the canonical app entrypoint (`frontend/index.html`) and the new AMP page: include a `<link rel=\"amphtml\" href=\"/amp/index.html\">` on the canonical page, and include a `<link rel=\"canonical\" href=\"/\">` (or the appropriate canonical URL path) on the AMP page.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/index.html",
+          "frontend/public/amp/index.html"
+        ],
+        "matchedFiles": [
+          "frontend/index.html",
+          "frontend/public/amp/index.html"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Ensure AMP pages are indexable and not blocked: add/update `frontend/public/robots.txt` and/or `frontend/public/sitemap.xml` as needed so `/amp/index.html` is crawlable, and ensure the AMP page returns HTTP 200 when deployed as a static asset.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/robots.txt",
+          "frontend/public/sitemap.xml",
+          "frontend/public/amp/index.html"
+        ],
+        "matchedFiles": [
+          "frontend/public/robots.txt",
+          "frontend/public/sitemap.xml",
+          "frontend/public/amp/index.html"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Update the frontend deployment checklist to include an AMP validation smoke test for `/amp/index.html` (how to open it, how to run AMP validation, and what constitutes success).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/DEPLOYMENT_CHECKLIST.md"
+        ],
+        "matchedFiles": [
+          "frontend/DEPLOYMENT_CHECKLIST.md"
         ]
       }
     ]
@@ -28,7 +67,11 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/DEPLOYMENT_CHECKLIST.md",
     "frontend/index.html",
+    "frontend/public/amp/index.html",
+    "frontend/public/robots.txt",
+    "frontend/public/sitemap.xml",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",
